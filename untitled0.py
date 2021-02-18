@@ -12,10 +12,7 @@ class cliente:
     self.nombre = nombre
     self.no_habitacion = no_habitacion
 
-class node:
-  def __init__(self,cliente = None,next= None):
-    self.cliente = cliente
-    self.next = next
+"""### **Listas enlazadas**"""
 
 class linked_list:
   def __init__(self):
@@ -64,6 +61,11 @@ lista.imprimir()
 lista.eliminar(204)
 
 lista.imprimir()
+
+class node:
+  def __init__(self,cliente = None,next= None):
+    self.cliente = cliente
+    self.next = next
 
 """## **Listas Circulares**"""
 
@@ -187,3 +189,81 @@ lista_de.insertar(c2)
 lista_de.insertar(c3)
 
 lista_de.imprimir()
+
+"""## **Pilas**"""
+
+class Pila:
+  def __init__(self):
+    self.pila=[]
+
+  def apilar(self,cliente):
+    self.pila.append(cliente)
+  
+  def devolver_tamano(self):
+    return len(self.pila)
+
+  def imprimir(self):
+    for elemento in self.pila:
+      print(elemento.nombre, end ="=>")
+  
+  def desapilar(self):
+    if self.pila:
+      self.pila.pop()
+
+c1 = cliente ("Zapeta",101)
+c2 = cliente ("Lopez",103)
+c3 = cliente ("Armas",204)
+c4 = cliente ("Olmos",302)
+
+p = Pila()
+p.apilar(c1)
+p.apilar(c2)
+p.apilar(c3)
+p.apilar(c4)
+
+p.devolver_tamano()
+
+p.imprimir()
+
+p.desapilar()
+
+p.imprimir()
+
+"""## **Colas**"""
+
+class Cola:
+  def __init__(self):
+    self.cola=[]
+
+  def encolar(self,cliente):
+    self.cola.append(cliente)
+
+  def devolver_tamano(self):
+    return len(self.cola)
+  
+  def imprimir(self):
+    for elemento in self.cola:
+      print(elemento.nombre, end ="<=")
+    
+  def desencolar(self):
+    if self.cola:
+      self.cola.pop(0)
+
+c1 = cliente ("Zapeta",101)
+c2 = cliente ("Lopez",103)
+c3 = cliente ("Armas",204)
+c4 = cliente ("Olmos",302)
+
+c = Cola()
+c.encolar(c1)
+c.encolar(c2)
+c.encolar(c3)
+c.encolar(c4)
+
+c.devolver_tamano()
+
+c.imprimir()
+
+c.desencolar()
+
+c.imprimir()
